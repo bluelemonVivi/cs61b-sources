@@ -42,7 +42,7 @@ public class SLList<Item> {
 
 	/** Adds x to the end of the list. */
 	public void addLast(Item x) {
-		size = size + 1;
+		size = size+1;
 
 		IntNode p = sentinel;
 
