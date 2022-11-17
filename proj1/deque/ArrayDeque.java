@@ -28,7 +28,7 @@ public class ArrayDeque<T> implements Deque<T>{
         size += 1;
         nextFirst -= 1;
         if (nextFirst == -1) {
-            resize(size*2);
+            resize(size * 2);
         }
     }
     @Override
@@ -37,14 +37,14 @@ public class ArrayDeque<T> implements Deque<T>{
         size += 1;
         nextLast += 1;
         if (nextLast == items.length) {
-            resize(size*2);
+            resize(size * 2);
         }
     }
     @Override
     public T removeFirst() {
         if (isEmpty()) {return null;}
-        T first = items[nextFirst+1];
-        items[nextFirst+1] = null;
+        T first = items[nextFirst + 1];
+        items[nextFirst + 1] = null;
         size -= 1;
         nextFirst += 1;
         shrinkSize();
@@ -53,8 +53,8 @@ public class ArrayDeque<T> implements Deque<T>{
     @Override
     public T removeLast() {
         if (isEmpty()) {return null;}
-        T last = items[nextLast-1];
-        items[nextLast-1] = null;
+        T last = items[nextLast - 1];
+        items[nextLast - 1] = null;
         size -= 1;
         nextLast -= 1;
         shrinkSize();
@@ -80,15 +80,16 @@ public class ArrayDeque<T> implements Deque<T>{
         if (isEmpty()) {
             resize(8);
         } else if (items.length > size && size > 8) {
-            resize(size*2);
+            resize(size * 2);
         }
     }
+    @SuppressWarnings("unchecked")
     // resize at the moment the array is full
     private void resize(int n) {
         T[] newItems = (T[]) new Object[n];
-        int firstPos = Math.abs(n-size)/2;
+        int firstPos = Math.abs(n - size) / 2;
         for (int i = 0; i < size; i++) {
-            newItems[firstPos+i] = items[nextFirst+1+i];
+            newItems[firstPos + i] = items[nextFirst + 1 + i];
         }
         items = newItems;
         nextFirst = firstPos - 1;
@@ -103,7 +104,7 @@ public class ArrayDeque<T> implements Deque<T>{
         if (o == this) {
             return true;
         }
-        if (! (o instanceof ArrayDeque)) {
+        if (!(o instanceof ArrayDeque)) {
             return false;
         }
         ArrayDeque<T> ad = (ArrayDeque<T>) o;

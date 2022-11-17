@@ -12,19 +12,19 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
 
     public LinkedListDeque(T item) {
-        head.next = new Node<>(item,head,head);
+        head.next = new Node<>(item, head, head);
         head.prev = head.next;
         size = 1;
     }
     @Override
     public void addFirst(T item) {
-        head.next = new Node<>(item,head,head.next);
+        head.next = new Node<>(item, head, head.next);
         head.next.next.prev = head.next;
         size += 1;
     }
     @Override
     public void addLast(T item) {
-        head.prev = new Node<>(item,head.prev,head);
+        head.prev = new Node<>(item, head.prev, head);
         head.prev.prev.next = head.prev;
         size += 1;
     }
@@ -57,7 +57,7 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
 
     public T getRecursive(int index) {
-        if (index < 0 || index > size-1) {
+        if (index < 0 || index > size - 1) {
             return null;
         }
         return recursiveHelper(index, head.next);
