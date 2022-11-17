@@ -11,9 +11,9 @@ public class GuitarHero {
         Scanner myScanner = new Scanner(System.in);
         GuitarString[] guitarStrings = new GuitarString[37];
         for (int i = 0; i < 37; i++) {
-            double frequency = Math.pow(440 * 2,(i - 24) / 12.0);
-            GuitarString string_i = new GuitarString(frequency);
-            guitarStrings[i] = string_i;
+            double frequency = Math.pow(440 * 2, (i - 24) / 12.0);
+            GuitarString stringI = new GuitarString(frequency);
+            guitarStrings[i] = stringI;
         }
 
         while (true) {

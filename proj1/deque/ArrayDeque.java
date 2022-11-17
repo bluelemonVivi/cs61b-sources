@@ -68,9 +68,9 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     }
     @Override
     public void printDeque() {
-        String[] _items = new String[size];
+        String[] itemList = new String[size];
         for (int i = 0; i < size; i++) {
-            _items[i] = get(i).toString();
+            itemList[i] = get(i).toString();
         }
         System.out.println(String.join(" ", _items));
     }
