@@ -105,7 +105,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (o == this) {
             return true;
         }
-        if (!(o instanceof ArrayDeque)) {
+        if (!((o instanceof ArrayDeque<?>) || (o instanceof LinkedListDeque<?>))) {
             return false;
         }
         ArrayDeque<?> ad = (ArrayDeque<?>) o;
@@ -134,9 +134,12 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
             return index < size;
         }
         public T next() {
-            T item = get(index);
-            index++;
-            return item;
+            if (hasNext()) {
+                T item = get(index);
+                index++;
+                return item;
+            }
+            return null;
         }
     }
 }

@@ -98,7 +98,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         if (o == this) {
             return true;
         }
-        if (!(o instanceof LinkedListDeque)) {
+        if (!((o instanceof LinkedListDeque<?>) || (o instanceof ArrayDeque))) {
             return false;
         }
         LinkedListDeque<?> lld = (LinkedListDeque<?>) o;
@@ -144,9 +144,12 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         }
 
         public T next() {
-            T item = p.item;
-            p = p.next;
-            return item;
+            if (hasNext()) {
+                T item = p.item;
+                p = p.next;
+                return item;
+            }
+            return null;
         }
     }
 }
