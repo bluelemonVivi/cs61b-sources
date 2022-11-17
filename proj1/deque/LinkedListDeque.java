@@ -91,7 +91,6 @@ public class LinkedListDeque<T> implements Deque<T> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public boolean equals(Object o) {
         if (o == null) {
             return false;
@@ -102,7 +101,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         if (!(o instanceof LinkedListDeque)) {
             return false;
         }
-        LinkedListDeque<T> lld = (LinkedListDeque<T>) o;
+        LinkedListDeque<?> lld = (LinkedListDeque<?>) o;
         if (lld.size() != size) {
             return false;
         }

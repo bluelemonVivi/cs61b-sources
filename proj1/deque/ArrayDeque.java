@@ -68,7 +68,11 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     }
     @Override
     public void printDeque() {
-
+        String[] _items = new String[size];
+        for (int i = 0; i < size; i++) {
+            _items[i] = get(i).toString();
+        }
+        System.out.println(String.join(" ", _items));
     }
     public int size() {
         return size;
@@ -105,7 +109,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (!(o instanceof ArrayDeque)) {
             return false;
         }
-        ArrayDeque<T> ad = (ArrayDeque<T>) o;
+        ArrayDeque<?> ad = (ArrayDeque<?>) o;
         if (ad.size() != size) {
             return false;
         }
