@@ -2,8 +2,8 @@ package deque;
 
 import java.util.Iterator;
 
-public class LinkedListDeque<T> implements Deque<T>{
-    private final Node<T> head = new Node<>(null,null,null);
+public class LinkedListDeque<T> implements Deque<T> {
+    private final Node<T> head = new Node<>(null, null, null);
     private int size;
     public LinkedListDeque() {
         head.prev = head;
@@ -11,11 +11,6 @@ public class LinkedListDeque<T> implements Deque<T>{
         size = 0;
     }
 
-    public LinkedListDeque(T item) {
-        head.next = new Node<>(item, head, head);
-        head.prev = head.next;
-        size = 1;
-    }
     @Override
     public void addFirst(T item) {
         head.next = new Node<>(item, head, head.next);
@@ -30,7 +25,9 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
     @Override
     public T removeFirst() {
-        if (isEmpty()) {return null;}
+        if (isEmpty()) {
+            return null;
+        }
         T first = head.next.item;
         head.next.next.prev = head;
         head.next = head.next.next;
@@ -39,7 +36,9 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
     @Override
     public T removeLast() {
-        if (isEmpty()) {return null;}
+        if (isEmpty()) {
+            return null;
+        }
         T last = head.prev.item;
         head.prev.prev.next = head;
         head.prev = head.prev.prev;
@@ -48,7 +47,9 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
     @Override
     public T get(int index) {
-        if (index < 0 || index > size - 1) {return null;}
+        if (index < 0 || index > size - 1) {
+            return null;
+        }
         Node<T> pointer = head.next;
         for (int i = 0; i < index; i++) {
             pointer = pointer.next;
@@ -62,7 +63,7 @@ public class LinkedListDeque<T> implements Deque<T>{
         }
         return recursiveHelper(index, head.next);
     }
-    public T recursiveHelper(int index, Node<T> pointer) {
+    private T recursiveHelper(int index, Node<T> pointer) {
         if (index == 0) {
             return pointer.item;
         }
@@ -72,7 +73,9 @@ public class LinkedListDeque<T> implements Deque<T>{
     public void printDeque() {
         String[] items = new String[size];
         Node<T> pointer = head.next;
-        if (pointer == head) {return;}
+        if (pointer == head) {
+            return;
+        }
         for (int i = 0; i < size; i++) {
             items[i] = pointer.toString();
             pointer = pointer.next;
@@ -96,7 +99,7 @@ public class LinkedListDeque<T> implements Deque<T>{
         if (o == this) {
             return true;
         }
-        if (! (o instanceof LinkedListDeque)) {
+        if (!(o instanceof LinkedListDeque)) {
             return false;
         }
         LinkedListDeque<T> lld = (LinkedListDeque<T>) o;

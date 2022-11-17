@@ -1,9 +1,9 @@
 package deque;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Objects;
 
-public class ArrayDeque<T> implements Deque<T>{
+import java.util.Iterator;
+
+
+public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     @SuppressWarnings("unchecked")
     private T[] items = (T[]) new Object[8];
     private int size;
@@ -16,12 +16,6 @@ public class ArrayDeque<T> implements Deque<T>{
         nextLast = 4;
     }
 
-    public ArrayDeque(T item) {
-        items[3] = item;
-        size = 1;
-        nextFirst = 2;
-        nextLast = 4;
-    }
     @Override
     public void addFirst(T item) {
         items[nextFirst] = item;
@@ -42,7 +36,9 @@ public class ArrayDeque<T> implements Deque<T>{
     }
     @Override
     public T removeFirst() {
-        if (isEmpty()) {return null;}
+        if (isEmpty()) {
+            return null;
+        }
         T first = items[nextFirst + 1];
         items[nextFirst + 1] = null;
         size -= 1;
@@ -52,7 +48,9 @@ public class ArrayDeque<T> implements Deque<T>{
     }
     @Override
     public T removeLast() {
-        if (isEmpty()) {return null;}
+        if (isEmpty()) {
+            return null;
+        }
         T last = items[nextLast - 1];
         items[nextLast - 1] = null;
         size -= 1;

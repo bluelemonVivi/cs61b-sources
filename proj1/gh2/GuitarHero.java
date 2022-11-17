@@ -10,10 +10,10 @@ public class GuitarHero {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
         GuitarString[] guitarStrings = new GuitarString[37];
-        for (int i = 0; i< 37; i++) {
-            double frequency = Math.pow(440*2,(i-24)/12.0);
-            GuitarString String_i = new GuitarString(frequency);
-            guitarStrings[i] = String_i;
+        for (int i = 0; i < 37; i++) {
+            double frequency = Math.pow(440 * 2,(i - 24) / 12.0);
+            GuitarString string_i = new GuitarString(frequency);
+            guitarStrings[i] = string_i;
         }
 
         while (true) {

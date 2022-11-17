@@ -1,7 +1,6 @@
 package gh2;
 
 
-import deque.ArrayDeque;
 import deque.Deque;
 import deque.LinkedListDeque;
 
@@ -16,7 +15,7 @@ public class GuitarString {
 
     /* Buffer for storing sound data. */
 
-     private final Deque<Double> buffer;
+    private final Deque<Double> buffer;
 
     /* Create a guitar string of the given frequency.  */
     public GuitarString(double frequency) {
@@ -60,7 +59,7 @@ public class GuitarString {
         //       **Do not call StdAudio.play().**
         double first = buffer.removeFirst();
         double second = buffer.get(0);
-        double newDouble = DECAY*0.5*(first+second);
+        double newDouble = DECAY * 0.5 * (first + second);
         buffer.addLast(newDouble);
     }
 
