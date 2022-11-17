@@ -72,7 +72,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         for (int i = 0; i < size; i++) {
             itemList[i] = get(i).toString();
         }
-        System.out.println(String.join(" ", _items));
+        System.out.println(String.join(" ", itemList));
     }
     public int size() {
         return size;
@@ -98,7 +98,6 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         nextLast = firstPos + size;
     }
     @Override
-    @SuppressWarnings("unchecked")
     public boolean equals(Object o) {
         if (o == null) {
             return false;
