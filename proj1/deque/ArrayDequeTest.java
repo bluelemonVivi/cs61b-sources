@@ -1,13 +1,10 @@
 package deque;
 
 public class ArrayDequeTest {
-    public void test() {
-        ArrayDeque<Integer> t = new ArrayDeque<>();
-        for (int i = 0; i < 5; i++) {
-            t.addLast(i);
-        }
-        for (int i : t) {
-            System.out.println(i);
-        }
+    public static void main(String[] args) {
+        Object x = null;
+        if (x.equals("horse")) {
+            System.out.println("no");
+        } else {System.out.println("oh no");}
     }
 }
